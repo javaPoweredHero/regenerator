@@ -1,0 +1,24 @@
+package com.regenerator.regenerator.data.yml.result;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Data;
+import lombok.experimental.Accessors;
+
+import java.util.List;
+
+@Data
+@Accessors(chain = true)
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class OfferResult {
+    Integer id;
+    Boolean available;
+    String url;
+    String price;
+    String currencyId;
+    String categoryName;
+    List<String> pictures;
+    String name;
+    String vendor;
+    String vendorCode;
+    String description;
+}
