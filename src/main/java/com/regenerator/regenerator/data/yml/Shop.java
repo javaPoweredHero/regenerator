@@ -23,6 +23,15 @@ public class Shop {
     @JacksonXmlProperty(localName = "url")
     String url;
 
+    @JacksonXmlProperty(localName = "platform")
+    String platform;
+
+    @JacksonXmlProperty(localName = "version")
+    String version;
+
+    @JacksonXmlProperty(localName = "enable_auto_discounts")
+    Boolean enableAutoDiscounts;
+
     @JacksonXmlProperty(localName = "currencies")
     @JacksonXmlElementWrapper
     List<Currency> currencies;

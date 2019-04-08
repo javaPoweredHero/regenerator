@@ -36,6 +36,9 @@ public class Offer {
     @JacksonXmlProperty(localName = "name")
     String name;
 
+    @JacksonXmlProperty(localName = "modified_time")
+    Long modifiedTime;
+
     @JacksonXmlProperty(localName = "vendor")
     String vendor;
 

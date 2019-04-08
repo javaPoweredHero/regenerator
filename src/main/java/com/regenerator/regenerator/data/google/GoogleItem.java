@@ -32,7 +32,7 @@ public class GoogleItem {
     String shippingWeight;
 
     @JacksonXmlProperty(namespace = "g", localName = "google_product_category")
-    String google_productCategory;
+    String googleProductCategory;
 
     @JacksonXmlProperty(namespace = "g", localName = "identifier_exists")
     String identifierExists;
