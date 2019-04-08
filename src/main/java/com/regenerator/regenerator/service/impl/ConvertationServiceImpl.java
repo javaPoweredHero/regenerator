@@ -2,6 +2,7 @@ package com.regenerator.regenerator.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.regenerator.regenerator.data.google.GoogleItem;
 import com.regenerator.regenerator.data.google.GoogleRss;
@@ -10,6 +11,7 @@ import com.regenerator.regenerator.data.yml.Shop;
 import com.regenerator.regenerator.data.yml.YmlCatalog;
 import com.regenerator.regenerator.data.yml.result.OfferResult;
 import com.regenerator.regenerator.service.api.ConvertationService;
+import com.regenerator.regenerator.utils.CsvSchemaFactory;
 import com.regenerator.regenerator.web.requests.ConvertationRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -67,7 +69,7 @@ public class ConvertationServiceImpl implements ConvertationService {
     private void convertYmlCatalog(BufferedReader input, BufferedWriter output, XmlMapper xmlMapper, CsvMapper csvMapper)
             throws IOException {
         YmlCatalog ymlCatalog = xmlMapper.readValue(input, YmlCatalog.class);
-        ObjectWriter writer = csvMapper.writer(csvMapper.schemaFor(OfferResult.class));
+        ObjectWriter writer = csvMapper.writer(CsvSchemaFactory.buildDefaultCsvSchema(csvMapper, OfferResult.class));
         List<Offer> offers = Optional.ofNullable(ymlCatalog)
                 .map(YmlCatalog::getShop)
                 .map(Shop::getOffers)
@@ -81,7 +83,7 @@ public class ConvertationServiceImpl implements ConvertationService {
     private void convertGoogleFeed(BufferedReader input, BufferedWriter output, XmlMapper xmlMapper, CsvMapper csvMapper)
             throws IOException {
         GoogleRss googleFeed = xmlMapper.readValue(input, GoogleRss.class);
-        ObjectWriter writer = csvMapper.writer(csvMapper.schemaFor(GoogleItem.class));
+        ObjectWriter writer = csvMapper.writer(CsvSchemaFactory.buildDefaultCsvSchema(csvMapper, GoogleRss.class));
 
         if (googleFeed != null && googleFeed.getChannel() != null) {
             writer.writeValues(output).writeAll(googleFeed.getChannel().getGoogleItemList());
