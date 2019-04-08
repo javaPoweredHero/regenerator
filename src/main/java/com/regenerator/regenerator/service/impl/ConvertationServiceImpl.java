@@ -12,6 +12,7 @@ import com.regenerator.regenerator.data.yml.result.OfferResult;
 import com.regenerator.regenerator.service.api.ConvertationService;
 import com.regenerator.regenerator.web.requests.ConvertationRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -22,6 +23,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ConvertationServiceImpl implements ConvertationService {
 
     @Override
@@ -55,6 +57,7 @@ public class ConvertationServiceImpl implements ConvertationService {
                     return false;
             }
         } catch (IOException ex) {
+            log.error("converation failed: " + ex);
             return false;
         }
 
