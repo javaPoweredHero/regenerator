@@ -7,7 +7,13 @@ import lombok.experimental.UtilityClass;
 @UtilityClass
 public class CsvSchemaFactory {
 
-    public CsvSchema buildDefaultCsvSchema(CsvMapper csvMapper, Class clazz) {
-        return csvMapper.schemaFor(clazz).withColumnSeparator(';').withHeader();
+    private final char COLUMN_SEPARATOR = ';';
+    private final String LINE_SEPARATOR = "Osbg7a";
+
+    public CsvSchema buildCsvSchema(CsvMapper csvMapper, Class clazz) {
+        return csvMapper.schemaFor(clazz)
+                .withColumnSeparator(COLUMN_SEPARATOR)
+                .withHeader()
+                .withLineSeparator(LINE_SEPARATOR);
     }
 }

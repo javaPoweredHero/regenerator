@@ -2,9 +2,7 @@ package com.regenerator.regenerator.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
-import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import com.regenerator.regenerator.data.google.GoogleItem;
 import com.regenerator.regenerator.data.google.GoogleRss;
 import com.regenerator.regenerator.data.yml.Offer;
 import com.regenerator.regenerator.data.yml.Shop;
@@ -18,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -45,8 +44,8 @@ public class ConvertationServiceImpl implements ConvertationService {
         File outputfile = new File(request.getOutputFilePath());
 
         try (
-                BufferedReader br = new BufferedReader(new FileReader(inputfile));
-                BufferedWriter bw = new BufferedWriter(new FileWriter(outputfile))
+                BufferedReader br = Files.newBufferedReader(inputfile.toPath());
+                BufferedWriter bw = Files.newBufferedWriter(outputfile.toPath())
         ) {
             switch (request.getDataType()) {
                 case YML:
@@ -59,7 +58,7 @@ public class ConvertationServiceImpl implements ConvertationService {
                     return false;
             }
         } catch (IOException ex) {
-            log.error("converation failed: " + ex);
+            log.error("conversion failed: " + ex);
             return false;
         }
 
@@ -69,7 +68,7 @@ public class ConvertationServiceImpl implements ConvertationService {
     private void convertYmlCatalog(BufferedReader input, BufferedWriter output, XmlMapper xmlMapper, CsvMapper csvMapper)
             throws IOException {
         YmlCatalog ymlCatalog = xmlMapper.readValue(input, YmlCatalog.class);
-        ObjectWriter writer = csvMapper.writer(CsvSchemaFactory.buildDefaultCsvSchema(csvMapper, OfferResult.class));
+        ObjectWriter writer = csvMapper.writer(CsvSchemaFactory.buildCsvSchema(csvMapper, OfferResult.class));
         List<Offer> offers = Optional.ofNullable(ymlCatalog)
                 .map(YmlCatalog::getShop)
                 .map(Shop::getOffers)
@@ -83,7 +82,7 @@ public class ConvertationServiceImpl implements ConvertationService {
     private void convertGoogleFeed(BufferedReader input, BufferedWriter output, XmlMapper xmlMapper, CsvMapper csvMapper)
             throws IOException {
         GoogleRss googleFeed = xmlMapper.readValue(input, GoogleRss.class);
-        ObjectWriter writer = csvMapper.writer(CsvSchemaFactory.buildDefaultCsvSchema(csvMapper, GoogleRss.class));
+        ObjectWriter writer = csvMapper.writer(CsvSchemaFactory.buildCsvSchema(csvMapper, GoogleRss.class));
 
         if (googleFeed != null && googleFeed.getChannel() != null) {
             writer.writeValues(output).writeAll(googleFeed.getChannel().getGoogleItemList());
