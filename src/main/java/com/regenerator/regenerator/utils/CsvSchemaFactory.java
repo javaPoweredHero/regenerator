@@ -8,7 +8,7 @@ import lombok.experimental.UtilityClass;
 public class CsvSchemaFactory {
 
     private final char COLUMN_SEPARATOR = ';';
-    private final String LINE_SEPARATOR = "Osbg7a";
+    private final String LINE_SEPARATOR = "%sbg7a%";
 
     public CsvSchema buildCsvSchema(CsvMapper csvMapper, Class clazz) {
         return csvMapper.schemaFor(clazz)
