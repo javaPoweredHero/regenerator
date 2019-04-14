@@ -17,6 +17,9 @@ public class Offer {
     @JacksonXmlProperty(localName = "available", isAttribute = true)
     Boolean available;
 
+    @JacksonXmlProperty(localName = "group_id", isAttribute = true)
+    Integer groupIdgrou;
+
     @JacksonXmlProperty(localName = "url")
     String url;
 
@@ -44,6 +47,9 @@ public class Offer {
 
     @JacksonXmlProperty(localName = "vendorCode")
     String vendorCode;
+
+    @JacksonXmlProperty(localName = "country_of_origin")
+    String countryOfOrigin;
 
     @JacksonXmlProperty(localName = "description")
     String description;
