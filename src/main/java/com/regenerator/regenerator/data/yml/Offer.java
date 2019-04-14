@@ -36,6 +36,12 @@ public class Offer {
     @JacksonXmlElementWrapper(useWrapping = false)
     List<String> pictures;
 
+    @JacksonXmlProperty(localName = "pickup")
+    Boolean pickup;
+
+    @JacksonXmlProperty(localName = "delivery")
+    Boolean delivery;
+
     @JacksonXmlProperty(localName = "name")
     String name;
 
