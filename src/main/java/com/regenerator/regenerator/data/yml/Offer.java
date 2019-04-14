@@ -18,7 +18,7 @@ public class Offer {
     Boolean available;
 
     @JacksonXmlProperty(localName = "group_id", isAttribute = true)
-    Integer groupIdgrou;
+    Integer groupId;
 
     @JacksonXmlProperty(localName = "url")
     String url;
