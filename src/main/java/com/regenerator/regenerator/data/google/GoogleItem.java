@@ -13,28 +13,28 @@ public class GoogleItem {
     @JacksonXmlProperty(localName = "link")
     String link;
 
-    @JacksonXmlProperty(namespace = "g", localName = "id")
+    @JacksonXmlProperty(localName = "id")
     String id;
 
-    @JacksonXmlProperty(namespace = "g", localName = "condition")
+    @JacksonXmlProperty(localName = "condition")
     String condition;
 
-    @JacksonXmlProperty(namespace = "g", localName = "price")
+    @JacksonXmlProperty(localName = "price")
     String price;
 
-    @JacksonXmlProperty(namespace = "g", localName = "availability")
+    @JacksonXmlProperty(localName = "availability")
     String availability;
 
-    @JacksonXmlProperty(namespace = "g", localName = "image_link")
+    @JacksonXmlProperty(localName = "image_link")
     String imageLink;
 
-    @JacksonXmlProperty(namespace = "g", localName = "shipping_weight")
+    @JacksonXmlProperty(localName = "shipping_weight")
     String shippingWeight;
 
-    @JacksonXmlProperty(namespace = "g", localName = "google_product_category")
+    @JacksonXmlProperty(localName = "google_product_category")
     String googleProductCategory;
 
-    @JacksonXmlProperty(namespace = "g", localName = "identifier_exists")
+    @JacksonXmlProperty(localName = "identifier_exists")
     String identifierExists;
 
     @JacksonXmlProperty(localName = "description")

@@ -3,6 +3,7 @@ package com.regenerator.regenerator.service.impl;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.regenerator.regenerator.data.google.GoogleItem;
 import com.regenerator.regenerator.data.google.GoogleRss;
 import com.regenerator.regenerator.data.yml.Offer;
 import com.regenerator.regenerator.data.yml.Shop;
@@ -82,7 +83,7 @@ public class ConvertationServiceImpl implements ConvertationService {
     private void convertGoogleFeed(BufferedReader input, BufferedWriter output, XmlMapper xmlMapper, CsvMapper csvMapper)
             throws IOException {
         GoogleRss googleFeed = xmlMapper.readValue(input, GoogleRss.class);
-        ObjectWriter writer = csvMapper.writer(CsvSchemaFactory.buildCsvSchema(csvMapper, GoogleRss.class));
+        ObjectWriter writer = csvMapper.writer(CsvSchemaFactory.buildCsvSchema(csvMapper, GoogleItem.class));
 
         if (googleFeed != null && googleFeed.getChannel() != null) {
             writer.writeValues(output).writeAll(googleFeed.getChannel().getGoogleItemList());
