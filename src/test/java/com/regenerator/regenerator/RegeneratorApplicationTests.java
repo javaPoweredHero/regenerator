@@ -41,7 +41,7 @@ public class RegeneratorApplicationTests {
 
 	private ConvertationRequest buildGoogleRequest(File file) {
 		return new ConvertationRequest()
-				.setDataType(DataType.GOOGLE)
+				.setDataType(DataType.GXML)
 				.setInputFilePath(file.getAbsolutePath())
 				.setOutputFilePath(generateResultFilePath(file.getAbsolutePath()));
 	}

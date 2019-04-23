@@ -51,7 +51,7 @@ public class ConvertationServiceImpl implements ConvertationService {
                 case YML:
                     convertYmlCatalog(br, bw, xmlMapper, csvMapper);
                     break;
-                case GOOGLE:
+                case GXML:
                     convertGoogleFeed(br, bw, xmlMapper, csvMapper);
                     break;
                 default:

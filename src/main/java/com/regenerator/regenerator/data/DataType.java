@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum DataType {
     YML("yml_catalog"),
-    GOOGLE("google_feed");
+    GXML("google_feed");
 
     private final String text;
 
