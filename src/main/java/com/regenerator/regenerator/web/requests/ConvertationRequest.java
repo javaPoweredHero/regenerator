@@ -19,4 +19,7 @@ public class ConvertationRequest {
 
     @NotNull
     private DataType dataType;
+
+    private String password;
 }
+
