@@ -16,7 +16,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
 import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.Collections;
 import java.util.List;
@@ -43,9 +47,12 @@ public class ConvertationServiceImpl implements ConvertationService {
         }
 
         File outputfile = new File(request.getOutputFilePath());
+        Charset inputCharset = resolveXmlEncoding(inputfile);
 
         try (
-                BufferedReader br = Files.newBufferedReader(inputfile.toPath());
+                BufferedReader br = inputCharset == null
+                        ? Files.newBufferedReader(inputfile.toPath())
+                        : Files.newBufferedReader(inputfile.toPath(), inputCharset);
                 BufferedWriter bw = Files.newBufferedWriter(outputfile.toPath())
         ) {
             switch (request.getDataType()) {
@@ -87,6 +94,16 @@ public class ConvertationServiceImpl implements ConvertationService {
 
         if (googleFeed != null && googleFeed.getChannel() != null) {
             writer.writeValues(output).writeAll(googleFeed.getChannel().getGoogleItemList());
+        }
+    }
+
+    private Charset resolveXmlEncoding(File inputFile) {
+        try (FileReader fileReader = new FileReader(inputFile)) {
+            final XMLStreamReader xmlStreamReader = XMLInputFactory.newInstance().createXMLStreamReader(fileReader);
+            return Charset.forName(xmlStreamReader.getCharacterEncodingScheme());
+        } catch (IOException | XMLStreamException ex) {
+            log.error("resolve encoding failed: " + ex);
+            return null;
         }
     }
 }
