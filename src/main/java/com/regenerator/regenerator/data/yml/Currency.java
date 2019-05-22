@@ -12,5 +12,5 @@ public class Currency {
     String id;
 
     @JacksonXmlProperty(localName = "rate", isAttribute = true)
-    Integer rate;
+    Double rate;
 }
