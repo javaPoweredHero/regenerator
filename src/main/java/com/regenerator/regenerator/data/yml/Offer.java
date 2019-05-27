@@ -12,13 +12,13 @@ import java.util.List;
 public class Offer {
 
     @JacksonXmlProperty(localName = "id", isAttribute = true)
-    Integer id;
+    String id;
 
     @JacksonXmlProperty(localName = "available", isAttribute = true)
     Boolean available;
 
     @JacksonXmlProperty(localName = "group_id", isAttribute = true)
-    Integer groupId;
+    String groupId;
 
     @JacksonXmlProperty(localName = "url")
     String url;
@@ -30,7 +30,7 @@ public class Offer {
     String currencyId;
 
     @JacksonXmlProperty(localName = "categoryId")
-    Integer categoryId;
+    String categoryId;
 
     @JacksonXmlProperty(localName = "picture")
     @JacksonXmlElementWrapper(useWrapping = false)
@@ -46,7 +46,7 @@ public class Offer {
     String name;
 
     @JacksonXmlProperty(localName = "modified_time")
-    Long modifiedTime;
+    String modifiedTime;
 
     @JacksonXmlProperty(localName = "vendor")
     String vendor;

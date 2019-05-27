@@ -10,10 +10,10 @@ import lombok.Data;
 public class Category {
 
     @JacksonXmlProperty(localName = "id", isAttribute = true)
-    Integer id;
+    String id;
 
     @JacksonXmlProperty(localName = "parentId", isAttribute = true)
-    Integer parentId;
+    String parentId;
 
     @JacksonXmlText
     private String value;

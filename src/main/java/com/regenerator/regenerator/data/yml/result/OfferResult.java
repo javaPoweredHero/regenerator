@@ -10,7 +10,7 @@ import java.util.List;
 @Accessors(chain = true)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OfferResult {
-    Integer id;
+    String id;
     Boolean available;
     String url;
     String price;
