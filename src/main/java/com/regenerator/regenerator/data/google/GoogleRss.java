@@ -10,8 +10,8 @@ import lombok.Data;
 public class GoogleRss {
 
     @JacksonXmlProperty(localName = "version", isAttribute = true)
-    String version;
+    private String version;
 
     @JacksonXmlElementWrapper(localName = "channel")
-    Channel channel;
+    private Channel channel;
 }

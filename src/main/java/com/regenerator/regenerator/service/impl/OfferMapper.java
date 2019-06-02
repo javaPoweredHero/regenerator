@@ -8,8 +8,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class OfferMapper {
+
+    private final static String PARAM_NAME_VALUE_DELIMITER = "/////";
 
     public static OfferResult toOfferResult(Offer offer, List<Category> categories) {
         String categoryName = Optional.ofNullable(categories).orElse(Collections.emptyList()).stream()
@@ -17,6 +20,11 @@ public class OfferMapper {
                 .map(Category::getValue)
                 .findFirst()
                 .orElse(null);
+
+        List<String> paramNameValueResultList = Optional.ofNullable(offer.getParamList())
+                .orElse(Collections.emptyList()).stream()
+                .map(param -> param.getName() + PARAM_NAME_VALUE_DELIMITER + param.getValue())
+                .collect(Collectors.toList());
 
         return new OfferResult().setId(offer.getId())
                 .setAvailable(offer.getAvailable())
@@ -28,6 +36,8 @@ public class OfferMapper {
                 .setName(offer.getName())
                 .setVendor(offer.getVendor())
                 .setVendorCode(offer.getVendorCode())
-                .setDescription(offer.getDescription());
+                .setDescription(offer.getDescription())
+                .setGroupId(offer.getGroupId())
+                .setParamNameValueStringList(paramNameValueResultList);
     }
 }

@@ -21,4 +21,6 @@ public class OfferResult {
     String vendor;
     String vendorCode;
     String description;
+    String groupId;
+    List<String> paramNameValueStringList;
 }

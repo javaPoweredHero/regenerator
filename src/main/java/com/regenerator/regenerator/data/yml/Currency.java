@@ -9,8 +9,8 @@ import lombok.Data;
 public class Currency {
 
     @JacksonXmlProperty(localName = "id", isAttribute = true)
-    String id;
+    private String id;
 
     @JacksonXmlProperty(localName = "rate", isAttribute = true)
-    String rate;
+    private String rate;
 }

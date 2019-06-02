@@ -59,4 +59,8 @@ public class Offer {
 
     @JacksonXmlProperty(localName = "description")
     String description;
+
+    @JacksonXmlProperty(localName = "param")
+    @JacksonXmlElementWrapper(useWrapping = false)
+    List<Param> paramList;
 }

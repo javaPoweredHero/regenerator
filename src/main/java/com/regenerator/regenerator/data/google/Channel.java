@@ -12,15 +12,15 @@ import java.util.List;
 public class Channel {
 
     @JacksonXmlProperty(localName = "title")
-    String title;
+    private String title;
 
     @JacksonXmlProperty(localName = "link")
-    String link;
+    private String link;
 
     @JacksonXmlProperty(localName = "description")
-    String description;
+    private String description;
 
     @JacksonXmlProperty(localName = "item")
     @JacksonXmlElementWrapper(useWrapping = false)
-    List<GoogleItem> googleItemList;
+    private List<GoogleItem> googleItemList;
 }

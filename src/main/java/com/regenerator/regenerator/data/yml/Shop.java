@@ -15,32 +15,32 @@ import java.util.List;
 public class Shop {
 
     @JacksonXmlProperty(localName = "name")
-    String name;
+    private String name;
 
     @JacksonXmlProperty(localName = "company")
-    String company;
+    private String company;
 
     @JacksonXmlProperty(localName = "url")
-    String url;
+    private String url;
 
     @JacksonXmlProperty(localName = "platform")
-    String platform;
+    private String platform;
 
     @JacksonXmlProperty(localName = "version")
-    String version;
+    private String version;
 
     @JacksonXmlProperty(localName = "enable_auto_discounts")
-    Boolean enableAutoDiscounts;
+    private Boolean enableAutoDiscounts;
 
     @JacksonXmlProperty(localName = "currencies")
     @JacksonXmlElementWrapper
-    List<Currency> currencies;
+    private List<Currency> currencies;
 
     @JacksonXmlProperty(localName = "categories")
     @JacksonXmlElementWrapper
-    List<Category> categories;
+    private List<Category> categories;
 
     @JacksonXmlProperty(localName = "offers")
     @JacksonXmlElementWrapper
-    List<Offer> offers;
+    private List<Offer> offers;
 }

@@ -11,48 +11,48 @@ import java.util.List;
 @Data
 public class GoogleItem {
     @JacksonXmlProperty(localName = "title")
-    String title;
+    private String title;
 
     @JacksonXmlProperty(localName = "link")
-    String link;
+    private String link;
 
     @JacksonXmlProperty(localName = "ads_redirect")
-    String adsRedirect;
+    private String adsRedirect;
 
     @JacksonXmlProperty(localName = "id")
-    String id;
+    private String id;
 
     @JacksonXmlProperty(localName = "condition")
-    String condition;
+    private String condition;
 
     @JacksonXmlProperty(localName = "price")
-    String price;
+    private String price;
 
     @JacksonXmlProperty(localName = "sale_price")
-    String salePrice;
+    private String salePrice;
 
     @JacksonXmlProperty(localName = "availability")
-    String availability;
+    private String availability;
 
     @JacksonXmlProperty(localName = "brand")
-    String brand;
+    private String brand;
 
     @JacksonXmlProperty(localName = "image_link")
-    String imageLink;
+    private String imageLink;
 
     @JacksonXmlProperty(localName = "shipping_weight")
-    String shippingWeight;
+    private String shippingWeight;
 
     @JacksonXmlProperty(localName = "google_product_category")
-    String googleProductCategory;
+    private String googleProductCategory;
 
     @JacksonXmlProperty(localName = "identifier_exists")
-    String identifierExists;
+    private String identifierExists;
 
     @JacksonXmlProperty(localName = "description")
-    String description;
+    private String description;
 
     @JacksonXmlProperty(localName = "additional_image_link")
     @JacksonXmlElementWrapper(useWrapping = false)
-    List<String> additionalImageLinkList;
+    private List<String> additionalImageLinkList;
 }

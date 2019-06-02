@@ -10,9 +10,9 @@ import lombok.Data;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class YmlCatalog {
     @JacksonXmlProperty(isAttribute = true, localName = "date")
-    String date;
+    private String date;
 
     @JacksonXmlProperty(localName = "shop")
-    Shop shop;
+    private Shop shop;
 }
 
