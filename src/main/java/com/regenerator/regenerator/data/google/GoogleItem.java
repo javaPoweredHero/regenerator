@@ -46,6 +46,21 @@ public class GoogleItem {
     @JacksonXmlProperty(localName = "google_product_category")
     private String googleProductCategory;
 
+    @JacksonXmlProperty(localName = "gender")
+    private String gender;
+
+    @JacksonXmlProperty(localName = "color")
+    private String color;
+
+    @JacksonXmlProperty(localName = "size")
+    private String size;
+
+    @JacksonXmlProperty(localName = "item_group_id")
+    private String itemGroupId;
+
+    @JacksonXmlProperty(localName = "material")
+    private String material;
+
     @JacksonXmlProperty(localName = "identifier_exists")
     private String identifierExists;
 
