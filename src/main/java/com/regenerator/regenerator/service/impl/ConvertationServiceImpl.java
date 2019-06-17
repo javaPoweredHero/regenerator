@@ -100,7 +100,11 @@ public class ConvertationServiceImpl implements ConvertationService {
     private Charset resolveXmlEncoding(File inputFile) {
         try (FileReader fileReader = new FileReader(inputFile)) {
             final XMLStreamReader xmlStreamReader = XMLInputFactory.newInstance().createXMLStreamReader(fileReader);
-            return Charset.forName(xmlStreamReader.getCharacterEncodingScheme());
+            if (xmlStreamReader.getCharacterEncodingScheme() == null) {
+                return Charset.forName("UTF-8");
+            } else {
+                return Charset.forName(xmlStreamReader.getCharacterEncodingScheme());
+            }
         } catch (IOException | XMLStreamException ex) {
             log.error("resolve encoding failed: " + ex);
             return null;
