@@ -30,7 +30,7 @@ public class Shop {
     private String version;
 
     @JacksonXmlProperty(localName = "enable_auto_discounts")
-    private Boolean enableAutoDiscounts;
+    private String enableAutoDiscounts;
 
     @JacksonXmlProperty(localName = "currencies")
     @JacksonXmlElementWrapper

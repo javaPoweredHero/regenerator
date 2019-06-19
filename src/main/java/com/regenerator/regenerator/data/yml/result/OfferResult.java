@@ -11,7 +11,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class OfferResult {
     String id;
-    Boolean available;
+    String available;
     String url;
     String price;
     String currencyId;

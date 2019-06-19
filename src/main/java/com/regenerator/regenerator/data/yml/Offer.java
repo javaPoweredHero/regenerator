@@ -15,7 +15,7 @@ public class Offer {
     String id;
 
     @JacksonXmlProperty(localName = "available", isAttribute = true)
-    Boolean available;
+    String available;
 
     @JacksonXmlProperty(localName = "group_id", isAttribute = true)
     String groupId;
@@ -37,10 +37,10 @@ public class Offer {
     List<String> pictures;
 
     @JacksonXmlProperty(localName = "pickup")
-    Boolean pickup;
+    String pickup;
 
     @JacksonXmlProperty(localName = "delivery")
-    Boolean delivery;
+    String delivery;
 
     @JacksonXmlProperty(localName = "name")
     String name;
