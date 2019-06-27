@@ -37,6 +37,7 @@ public class FileInputController {
 
     @PostMapping(path = Urls.FileInputController.CreateTask.PART)
     public ResponseEntity<String> createConvertationTask(@Valid @RequestBody ConvertationRequest request) {
+        log.info(request.toString());
         if (!simpleSecurityService.ensurePassword(request) ) {
             return new ResponseEntity<>(BAD_CREDENTIALS_RESPONSE, HttpStatus.UNAUTHORIZED);
         }
