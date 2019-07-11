@@ -22,5 +22,7 @@ public class OfferResult {
     String vendorCode;
     String description;
     String groupId;
+    String model;
+    String weight;
     List<String> paramNameValueStringList;
 }

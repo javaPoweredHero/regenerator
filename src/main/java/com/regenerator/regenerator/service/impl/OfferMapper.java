@@ -38,6 +38,8 @@ public class OfferMapper {
                 .setVendorCode(offer.getVendorCode())
                 .setDescription(offer.getDescription())
                 .setGroupId(offer.getGroupId())
+                .setModel(offer.getModel())
+                .setWeight(offer.getWeight())
                 .setParamNameValueStringList(paramNameValueResultList);
     }
 }

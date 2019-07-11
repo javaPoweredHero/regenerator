@@ -60,6 +60,12 @@ public class Offer {
     @JacksonXmlProperty(localName = "description")
     String description;
 
+    @JacksonXmlProperty(localName = "model")
+    String model;
+
+    @JacksonXmlProperty(localName = "weight")
+    String weight;
+
     @JacksonXmlProperty(localName = "param")
     @JacksonXmlElementWrapper(useWrapping = false)
     List<Param> paramList;
