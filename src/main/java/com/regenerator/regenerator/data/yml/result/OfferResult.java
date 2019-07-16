@@ -14,6 +14,7 @@ public class OfferResult {
     String available;
     String url;
     String price;
+    String oldPrice;
     String currencyId;
     String categoryName;
     List<String> pictures;
@@ -24,5 +25,6 @@ public class OfferResult {
     String groupId;
     String model;
     String weight;
+    String stockQuantity;
     List<String> paramNameValueStringList;
 }

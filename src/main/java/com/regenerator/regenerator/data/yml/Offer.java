@@ -26,6 +26,9 @@ public class Offer {
     @JacksonXmlProperty(localName = "price")
     String price;
 
+    @JacksonXmlProperty(localName = "oldprice")
+    String oldPrice;
+
     @JacksonXmlProperty(localName = "currencyId")
     String currencyId;
 
@@ -65,6 +68,9 @@ public class Offer {
 
     @JacksonXmlProperty(localName = "weight")
     String weight;
+
+    @JacksonXmlProperty(localName = "stock_quantity")
+    String stockQuantity;
 
     @JacksonXmlProperty(localName = "param")
     @JacksonXmlElementWrapper(useWrapping = false)
